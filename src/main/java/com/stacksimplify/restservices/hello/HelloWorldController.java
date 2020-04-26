@@ -14,8 +14,8 @@ public class HelloWorldController {
         return "Hello World";
     }
 
-    @GetMapping("/user")
-    public User getUser() {
-        return User.builder().firstName("Ash").lastName("Jam").city("Sydney").build();
+    @GetMapping("/person")
+    public Person getPerson() {
+        return Person.builder().firstName("Ash").lastName("Jam").city("Sydney").build();
     }
 }

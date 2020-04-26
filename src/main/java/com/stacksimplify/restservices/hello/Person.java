@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class User {
+public class Person {
     private String firstName;
     private String lastName;
     private String city;
