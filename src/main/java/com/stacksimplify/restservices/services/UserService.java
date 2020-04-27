@@ -3,6 +3,7 @@ package com.stacksimplify.restservices.services;
 import com.stacksimplify.restservices.entities.User;
 import com.stacksimplify.restservices.exceptions.UserExistsException;
 import com.stacksimplify.restservices.exceptions.UserNotFoundException;
+import com.stacksimplify.restservices.exceptions.UsernameNotFoundException;
 import com.stacksimplify.restservices.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,7 +55,11 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public User findByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("Username:" + username + " not found in the repository" );
+        }
+        return user;
     }
 }
