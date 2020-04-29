@@ -1,5 +1,7 @@
 package com.stacksimplify.restservices.entities;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -9,8 +11,7 @@ import java.util.List;
 // and
 @Entity
 @Table(name = "user")
-public class User {
-
+public class User extends RepresentationModel<User> {
     @Id
     @GeneratedValue
     private Long id;
