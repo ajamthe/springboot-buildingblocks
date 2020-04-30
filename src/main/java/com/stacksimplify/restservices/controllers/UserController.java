@@ -1,4 +1,5 @@
 package com.stacksimplify.restservices.controllers;
+
 import com.stacksimplify.restservices.entities.User;
 import com.stacksimplify.restservices.exceptions.UserExistsException;
 import com.stacksimplify.restservices.exceptions.UserNotFoundException;
@@ -20,7 +21,7 @@ import java.util.Optional;
 
 @RestController
 @Validated
-@RequestMapping(value= "/users")
+@RequestMapping(value = "/users")
 public class UserController {
     @Autowired
     private UserService userService;

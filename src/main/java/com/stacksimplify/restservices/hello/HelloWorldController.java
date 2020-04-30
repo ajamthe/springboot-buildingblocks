@@ -25,12 +25,12 @@ public class HelloWorldController {
 
     @GetMapping("/hello-int")
     public String getMessagesInI18nFormat(@RequestHeader(name = "Accept-Language", required = false) String locale) {
-        return messageSource.getMessage("label.hello",null, new Locale(locale));
+        return messageSource.getMessage("label.hello", null, new Locale(locale));
     }
 
     @GetMapping("/hello-int2")
     public String getMessagesInI18nFormat2() {
-        return messageSource.getMessage("label.hello",null, LocaleContextHolder.getLocale());
+        return messageSource.getMessage("label.hello", null, LocaleContextHolder.getLocale());
     }
 
 }

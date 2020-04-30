@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import javax.validation.constraints.Min;
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping(value = "/hateoas/users")
@@ -28,7 +30,7 @@ public class UserHateoasController {
     @GetMapping
     public ResponseEntity<List> getAllUsers() throws UserNotFoundException {
         List<User> allUsers = userService.getAllUsers();
-        for(User user : allUsers) {
+        for (User user : allUsers) {
             Long userId = user.getId();
             user.add(linkTo(methodOn(this.getClass()).getUserById(userId)).withSelfRel());
             user.add(linkTo(methodOn(OrderHateoasController.class).getAllOrders(userId)).withRel("all-orders"));

@@ -15,29 +15,30 @@ import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 
 import java.util.Locale;
 
-@SpringBootApplication @ComponentScan(basePackages = { "com.stacksimplify.restservices.hello",
-		"com.stacksimplify.restservices.services", "com.stacksimplify.restservices.controllers, com.stacksimplify.restservices.mappers"} )
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.stacksimplify.restservices.hello",
+        "com.stacksimplify.restservices.services", "com.stacksimplify.restservices.controllers, com.stacksimplify.restservices.mappers"})
 @EnableJpaRepositories(basePackages = "com.stacksimplify.restservices.repositories")
-@EntityScan( basePackages = {"com.stacksimplify.restservices.entities"} )
+@EntityScan(basePackages = {"com.stacksimplify.restservices.entities"})
 @Import({CustomGlobalExceptionHandler.class, AppConfig.class})
 //@Import({GlobalRestControllerAdviceExceptionHandler.class})
 public class SpringbootBuildingblocksApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootBuildingblocksApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootBuildingblocksApplication.class, args);
+    }
 
-	@Bean
-	public LocaleResolver localResolver() {
-		AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
-		localeResolver.setDefaultLocale(Locale.US);
-		return localeResolver;
-	}
+    @Bean
+    public LocaleResolver localResolver() {
+        AcceptHeaderLocaleResolver localeResolver = new AcceptHeaderLocaleResolver();
+        localeResolver.setDefaultLocale(Locale.US);
+        return localeResolver;
+    }
 
-	@Bean
-	public ResourceBundleMessageSource messageSource() {
-		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		return messageSource;
-	}
+    @Bean
+    public ResourceBundleMessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        return messageSource;
+    }
 }
