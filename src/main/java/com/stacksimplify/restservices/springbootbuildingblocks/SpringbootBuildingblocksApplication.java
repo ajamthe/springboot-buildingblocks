@@ -1,5 +1,6 @@
 package com.stacksimplify.restservices.springbootbuildingblocks;
 
+import com.stacksimplify.restservices.config.AppConfig;
 import com.stacksimplify.restservices.exceptions.CustomGlobalExceptionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +19,7 @@ import java.util.Locale;
 		"com.stacksimplify.restservices.services", "com.stacksimplify.restservices.controllers"} )
 @EnableJpaRepositories(basePackages = "com.stacksimplify.restservices.repositories")
 @EntityScan( basePackages = {"com.stacksimplify.restservices.entities"} )
-@Import({CustomGlobalExceptionHandler.class})
+@Import({CustomGlobalExceptionHandler.class, AppConfig.class})
 //@Import({GlobalRestControllerAdviceExceptionHandler.class})
 public class SpringbootBuildingblocksApplication {
 
