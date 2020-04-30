@@ -1,8 +1,5 @@
 package com.stacksimplify.restservices.entities;
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -45,7 +42,7 @@ public class User extends RepresentationModel<User> {
     @JsonView(Views.Internal.class)
     private String role;
 
-//    @JsonIgnore -- Static filtering JsonIgnore
+    //    @JsonIgnore -- Static filtering JsonIgnore
     @Column(name = "SSN", length = 50, nullable = false, unique = true)
     @JsonView(Views.Internal.class)
     private String ssn;
@@ -54,8 +51,23 @@ public class User extends RepresentationModel<User> {
     @JsonView(Views.Internal.class)
     private List<Order> orders;
 
+    @Column(name = "ADDRESS")
+    private String address;
+
     // No Argument Constructor
     public User() {
+    }
+
+    public User(Long id, @NotEmpty(message = "Username is a mandatory field. Please provide username") String username, @Size(min = 2, message = "Firstname should have atleast 2 characters") String firstname, String lastname, String email, String role, String ssn, List<Order> orders, String address) {
+        this.id = id;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.role = role;
+        this.ssn = ssn;
+        this.orders = orders;
+        this.address = address;
     }
 
     // Fields Constructor
@@ -134,6 +146,13 @@ public class User extends RepresentationModel<User> {
         this.orders = orders;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     // To String
     @Override

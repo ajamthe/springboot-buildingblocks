@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @Builder
 public class Person {
-    private String firstName;
-    private String lastName;
-    private String city;
+    private final String firstName;
+    private final String lastName;
+    private final String city;
 }

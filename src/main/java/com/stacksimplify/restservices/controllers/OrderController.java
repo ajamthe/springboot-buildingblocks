@@ -31,7 +31,7 @@ public class OrderController {
     @PostMapping(value = "/{userId}/orders")
     public void createOrder(@PathVariable Long userId, @RequestBody Order order) throws UserNotFoundException {
         Optional<User> user = userRepository.findById(userId);
-        if(!user.isPresent()) {
+        if (!user.isPresent()) {
             throw new UserNotFoundException("User:" + userId + " not present in the repository");
         }
         order.setUser(user.get());
@@ -41,7 +41,7 @@ public class OrderController {
     @GetMapping(value = "/{userId}/orders/{orderId}")
     public Order getOrderByOrderId(@PathVariable Long userId, @PathVariable Long orderId) throws UserNotFoundException {
         Optional<User> user = userRepository.findById(userId);
-        if(!user.isPresent()) {
+        if (!user.isPresent()) {
             throw new UserNotFoundException("User:" + userId + " not present in the repository");
         }
         Optional<Order> optionalOrder = orderRepository.findById(orderId);

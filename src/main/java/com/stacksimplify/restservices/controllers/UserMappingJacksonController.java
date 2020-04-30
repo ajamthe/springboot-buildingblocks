@@ -40,7 +40,7 @@ public class UserMappingJacksonController {
                     .addFilter("userFilter", SimpleBeanPropertyFilter.filterOutAllExcept(fields));
             mapper.setFilters(filterProvider);
             return mapper;
-            
+
         } catch (UserNotFoundException ex) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
         }
