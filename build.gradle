@@ -41,6 +41,9 @@ dependencies {
 	compile group: 'io.springfox', name: 'springfox-bean-validators', version: '2.4.0'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.2.6.RELEASE'
 	compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.2.2'
+	compile group: 'io.micrometer', name: 'micrometer-core', version: '1.5.0'
+	compile group: 'io.micrometer', name: 'micrometer-registry-jmx', version: '1.5.0'
+	compile 'io.micrometer:micrometer-registry-dynatrace:latest.release'
 
 	testCompileOnly 'org.projectlombok:lombok:1.18.12'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
