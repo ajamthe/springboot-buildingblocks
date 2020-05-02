@@ -16,7 +16,7 @@ import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import java.util.Locale;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.stacksimplify.restservices.hello",
+@ComponentScan(basePackages = {"com.stacksimplify.restservices",
         "com.stacksimplify.restservices.services", "com.stacksimplify.restservices.controllers, com.stacksimplify.restservices.mappers"})
 @EnableJpaRepositories(basePackages = "com.stacksimplify.restservices.repositories")
 @EntityScan(basePackages = {"com.stacksimplify.restservices.entities"})
