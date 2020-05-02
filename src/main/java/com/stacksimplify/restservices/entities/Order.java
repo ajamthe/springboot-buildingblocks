@@ -2,13 +2,12 @@ package com.stacksimplify.restservices.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "orders")
-public class Order extends RepresentationModel {
+public class Order {
     @Id
     @GeneratedValue
     @Column(name = "orderId")
